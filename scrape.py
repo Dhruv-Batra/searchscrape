@@ -16,10 +16,7 @@ print(response)
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-df = pd.DataFrame(columns = ['Title', 'Price','description',
-                             'Brand', 'Model', 'Features', 'Origin', 'Shipping',
-                             'Top Seller','Stars', 'No. Of Reviews',
-                             'Qty Sold',  'Link'])
+df = pd.DataFrame(columns = ['Title', 'Price','description', 'Shipping' , 'Top Seller','Stars', 'Link'])
 
 n=0
 

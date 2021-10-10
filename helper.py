@@ -20,36 +20,6 @@ def exportData(items, df, n):
     df.loc[n, 'description'] = item_desc
 
     try:
-        item_brand = items.find('span', class_='s-item__dynamic s-item__dynamicAttributes1').text.split(' ')[1]
-    except Exception as e:
-        item_brand = 'None'
-
-    df.loc[n, 'Brand'] = item_brand
-
-    try:
-        item_model = items.find('span', class_='s-item__dynamic s-item__dynamicAttributes2').text.split(' ')[1:]
-        item_model = ' '.join(item_model)
-    except Exception as e:
-        item_model = 'None'
-
-    df.loc[n, 'Model'] = item_model
-
-    try:
-        item_features = items.find('span', class_='s-item__dynamic s-item__dynamicAttributes3').text.split(' ')[1]
-    except Exception as e:
-        item_features = 'None'
-
-    df.loc[n, 'Features'] = item_features
-
-    try:
-        item_origin = items.find('span', class_='s-item__location s-item__itemLocation').text
-        item_origin = re.sub('From ', '', item_origin)
-    except Exception as e:
-        item_origin = 'None'
-
-    df.loc[n, 'Origin'] = item_origin
-
-    try:
         item_price = items.find('span', class_='s-item__price').text
     except Exception as e:
         item_price = 'None'
@@ -76,24 +46,6 @@ def exportData(items, df, n):
         item_stars = 'None'
 
     df.loc[n, 'Stars'] = item_stars
-
-    try:
-        item_nreviews = items.find('a', class_='s-item__reviews-count').text.split(' ')[0]
-    except Exception as e:
-        item_nreviews = 'None'
-
-    df.loc[n, 'No. Of Reviews'] = item_nreviews
-
-    try:
-        item_qty_sold = items.find('span', class_='s-item__hotness s-item__itemHotness').text.split(' ')
-        if item_qty_sold[1] == 'sold':
-            item_qty_sold = item_qty_sold[0]
-        else:
-            item_qty_sold = 0
-    except Exception as e:
-        item_qty_sold = 'None'
-
-    df.loc[n, 'Qty Sold'] = item_qty_sold
 
     try:
         item_link = items.find('a', class_='s-item__link')['href']
