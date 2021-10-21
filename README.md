@@ -15,6 +15,10 @@
 
 1. Open the searchscrape directory in your IDE (Any is fine). As far as reccomendations for IDEs go I would suggest PyCharm if you are a student (https://www.jetbrains.com/community/education/#students) and VS Code otherwise (https://code.visualstudio.com/)
 
-2. Edit OgSearchTerm minPrice and maxPrice with your query
+2. Create a directory called 'Results' in the searchscrape directory
 
-3. Run the command "py scrape.py" a file called ebay_phones.xlsx will be created in your working directory
+3. Edit filepath in scrape.py making sure to use '/' instead of '\' with the file path to the Results directory
+
+3. Edit OgSearchTerm minPrice and maxPrice with your query
+
+4. Run the command "py scrape.py" a file will be created in the results directory
