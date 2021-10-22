@@ -4,6 +4,16 @@ import numpy as np
 def parseSearch(OgSearchTerm):
     return OgSearchTerm.replace(" ","+")
 
+def exportCraig(item,df,n):
+    df.loc[n, 'Title'] = item['name']
+    df.loc[n, 'description'] = 'none'
+    df.loc[n, 'Price'] = float(item['price'][1:len(item['price'])])
+    df.loc[n, 'Shipping'] = 'pickup'
+    df.loc[n, 'Top Seller'] = 'N/A'
+    df.loc[n, 'Stars'] = 'N/A'
+    df.loc[n, 'Link'] = item['url']
+
+
 def exportData(items, df, n):
     try:
         item_title = items.find('h3', class_='s-item__title').text
@@ -24,7 +34,10 @@ def exportData(items, df, n):
     except Exception as e:
         item_price = 'None'
 
-    df.loc[n, 'Price'] = item_price
+    try:
+        df.loc[n, 'Price'] =float(item_price[1:len(item_price)])
+    except:
+        df.loc[n, 'Price'] = float(9999999)
 
     try:
         item_shipping = items.find('span', class_='s-item__shipping s-item__logisticsCost').text

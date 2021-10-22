@@ -1,4 +1,4 @@
-# searchscrape v1
+# searchscrape v2
 
 ## Installation
 
@@ -11,14 +11,14 @@
 
 4. Navigate to searchscrape directory and install dependencies from requirements.txt "pip install -r requirements.txt"
 
+5. Create a directory called 'Results' in the searchscrape directory
+
+6. Edit filepath in scrape.py making sure to use '/' instead of '\' with the file path to the Results directory
+
 ## Operation
 
 1. Open the searchscrape directory in your IDE (Any is fine). As far as reccomendations for IDEs go I would suggest PyCharm if you are a student (https://www.jetbrains.com/community/education/#students) and VS Code otherwise (https://code.visualstudio.com/)
 
-2. Create a directory called 'Results' in the searchscrape directory
+3. Edit OgSearchTerm, minPrice and maxPrice with your query
 
-3. Edit filepath in scrape.py making sure to use '/' instead of '\' with the file path to the Results directory
-
-3. Edit OgSearchTerm minPrice and maxPrice with your query
-
-4. Run the command "py scrape.py" a file will be created in the results directory
+4. Run the command "py scrape.py" and a file will be created in the results directory with the output
